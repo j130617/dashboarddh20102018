@@ -224,6 +224,68 @@ d3.csv("omzet.csv", function(error, data) {
       .style("font-size", 9)
       .text("Omzet webwinkels 2011-2017 (CBS)");  
    
+});
+	
+		//------------------------------------------------------------------------------------------------------>>>>> CHART3
+	// Adds the chartOmzet canvas          
+var chartomzetecomgfk = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", 
+	  "translate(" + margin.left + "," + margin.top + ")");
+	// Get the data
+d3.csv("omzet.csv", function(error, data) {
+  if (error) throw error;
+  
+  	// format the data
+  data.forEach(function(d) {
+    d.omzetgfk = +d.omzetgfk;
+  });
+	
+  	// Scale the range of the data in the domains
+  xb.domain(data.map(function(d) { return d.jaar2; }));
+  yb.domain([0, d3.max(data, function(d) { return d.omzetgfk; })]);	
+  
+	// append the rectangles for the bar chart
+  chartomzetecomgfk.selectAll(".bar")
+      .data(data)
+    .enter().append("rect")
+      .attr("class", "bar")
+      .attr("x", function(d) { return xb(d.jaar2); })
+      .attr("width", xb.bandwidth())
+      .attr("y", function(d) { return yb(d.omzetgfk); })
+      .attr("height", function(d) { return height - yb(d.omzetgfk); })
+      .on("mousemove", function(d){
+            tooltip
+              .style("left", d3.event.pageX + 10 + "px")
+              .style("top", d3.event.pageY - 25 + "px")
+              .style("display", "inline-block")
+              .html((d.jaar2) + "<br>" + (d.omzetgfk) + " miljard euro");
+        })
+    		.on("mouseout", function(d){ tooltip.style("display", "none");});
+  
+  	// add the xB Axis
+  chartomzetecomgfk.append("g")
+      .attr("class", "axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(d3.axisBottom(xb));
+  
+  	// add the yB Axis
+  chartomzetecomgfk.append("g")
+      .attr("class", "axis")  
+      .call(d3.axisLeft(yb));
+  
+	// Add a small label for the graph name.
+  chartomzetecomgfk.append("text")
+      .attr("class", "title")
+      .attr("x", 10)
+      .attr("y", -10)
+      .attr("font-weight", "bold")
+      .style("text-anchor", "start")
+      .style("font-size", 9)
+      .text("Omzet webwinkels 2011-2017 (CBS)");  
+   
 });	
 </script>
 </body>
