@@ -77,7 +77,7 @@ var zbg = d3.scaleOrdinal()
 
 	//------------------------------------------------------------------>>>>> CHART1
 
-	// Adds the chartMdw to canvas
+/*	// Adds the chartMdw to canvas
 var chartMdw = d3.select("body").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
@@ -86,7 +86,7 @@ var chartMdw = d3.select("body").append("svg")
 	  "translate(" + margin.left + "," + margin.top + ")");
 
 	// get the data //
-d3.csv("mdw.csv", function(d, i, columns) {
+d3.csv("omzetdhcbs.csv", function(d, i, columns) {
   for (var i = 1, n = columns.length; i < n; ++i) d[columns[i]] = +d[columns[i]];
   return d;
 }, function(error, data) {
@@ -178,8 +178,8 @@ d3.csv("mdw.csv", function(d, i, columns) {
       .attr("x", width - 24)
       .attr("y", 5)
       .attr("dy", "0.32em")
-      .text(function(d) { return d; });*/
-});
+      .text(function(d) { return d; }); ////*
+}); */
 
 	//------------------------------------------------------------------>>>>> CHART2
 
@@ -192,7 +192,7 @@ var chartOmzet = d3.select("body").append("svg")
 	  "translate(" + margin.left + "," + margin.top + ")");
 
 	// Get the data
-d3.csv("omzet.csv", function(error, data) {
+d3.csv("omzetdhcbs.csv", function(error, data) {
   if (error) throw error;
   
   	// format the data
