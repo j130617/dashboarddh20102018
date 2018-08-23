@@ -137,7 +137,7 @@ d3.csv("omzetdhcbs.csv", function(error, data) {
               .style("left", d3.event.pageX + 10 + "px")
               .style("top", d3.event.pageY - 25 + "px")
               .style("display", "inline-block")
-              .html((d.jaar) + "<br>" + (d.eur) + " euro");
+              .html((d.jaar) + "<br>" + (d.eur) + " miljard euro");
         })
     		.on("mouseout", function(d){ tooltip.style("display", "none");});
   
