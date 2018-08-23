@@ -111,17 +111,17 @@ var chartDSO = d3.select("body").append("svg")
     .attr("transform", 
 	  "translate(" + margin.left + "," + margin.top + ")");
 	// Get the data
-d3.csv("dso.csv", function(error, data) {
+d3.csv("omzetdhcbs.csv", function(error, data) {
   if (error) throw error;
   
   	// format the data
   data.forEach(function(d) {
-    d.dso = +d.dso;
+    d.eur = +d.eur;
   });
 	
   	// Scale the range of the data in the domains
   xb.domain(data.map(function(d) { return d.jaar; }));
-  yb.domain([0, d3.max(data, function(d) { return d.dso; })]);	
+  yb.domain([0, d3.max(data, function(d) { return d.eur; })]);	
   
 	// append the rectangles for the bar chart
   chartDSO.selectAll(".bar")
@@ -130,14 +130,14 @@ d3.csv("dso.csv", function(error, data) {
       .attr("class", "bar")
       .attr("x", function(d) { return xb(d.jaar); })
       .attr("width", xb.bandwidth())
-      .attr("y", function(d) { return yb(d.dso); })
-      .attr("height", function(d) { return height - yb(d.dso); })
+      .attr("y", function(d) { return yb(d.eur); })
+      .attr("height", function(d) { return height - yb(d.eur); })
       .on("mousemove", function(d){
             tooltip
               .style("left", d3.event.pageX + 10 + "px")
               .style("top", d3.event.pageY - 25 + "px")
               .style("display", "inline-block")
-              .html((d.jaar) + "<br>" + (d.dso) + " dagen");
+              .html((d.jaar) + "<br>" + (d.eur) + " euro");
         })
     		.on("mouseout", function(d){ tooltip.style("display", "none");});
   
@@ -160,7 +160,7 @@ d3.csv("dso.csv", function(error, data) {
       .attr("font-weight", "bold")
       .style("text-anchor", "start")
       .style("font-size", 9)
-      .text("Aantal dagen klantenkrediet");  
+      .text("Omzet detailhandel 2010-2017");  
    
 });
 
