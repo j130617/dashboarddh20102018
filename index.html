@@ -240,12 +240,12 @@ d3.csv("data.csv", function(error, data) {
   
   	// format the data
   data.forEach(function(d) {
-    d.totaalomzettmm = +d.totaalomzettmm;
+    d.totaalomzettmm1 = +d.totaalomzettmm1;
   });
 	
   	// Scale the range of the data in the domains
   xb.domain(data.map(function(d) { return d.jaar2; }));
-  yb.domain([0, d3.max(data, function(d) { return d.totaalomzettmm; })]);	
+  yb.domain([0, d3.max(data, function(d) { return d.totaalomzettmm1; })]);	
   
 	// append the rectangles for the bar chart
   chartomzetecomgfk.selectAll(".bar")
@@ -255,13 +255,13 @@ d3.csv("data.csv", function(error, data) {
       .attr("x", function(d) { return xb(d.jaar2); })
       .attr("width", xb.bandwidth())
       .attr("y", function(d) { return yb(d.totaalomzettmm); })
-      .attr("height", function(d) { return height - yb(d.totaalomzettmm); })
+      .attr("height", function(d) { return height - yb(d.totaalomzettmm1); })
       .on("mousemove", function(d){
             tooltip
               .style("left", d3.event.pageX + 10 + "px")
               .style("top", d3.event.pageY - 25 + "px")
               .style("display", "inline-block")
-              .html((d.jaar2) + "<br>" + (d.totaalomzettmm) + " miljard euro");
+              .html((d.jaar2) + "<br>" + (d.totaalomzettmm1) + " miljard euro");
         })
     		.on("mouseout", function(d){ tooltip.style("display", "none");});
   
