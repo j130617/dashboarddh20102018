@@ -254,7 +254,7 @@ d3.csv("data.csv", function(error, data) {
       .attr("class", "bar")
       .attr("x", function(d) { return xb(d.jaar2); })
       .attr("width", xb.bandwidth())
-      .attr("y", function(d) { return yb(d.totaalomzettmm); })
+      .attr("y", function(d) { return yb(d.totaalomzettmm1); })
       .attr("height", function(d) { return height - yb(d.totaalomzettmm1); })
       .on("mousemove", function(d){
             tooltip
