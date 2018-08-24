@@ -288,7 +288,7 @@ d3.csv("ecommarktanalyse.csv", function(error, data) {
    
 });
 	
-	-----------------------------------------------------------------------------------------------------------
+/*	-----------------------------------------------------------------------------------------------------------
 // Adds the linechart canvas
 var chartOmzetgroei = d3.select("body").append("svg")
         .attr("width", width + margin.left + margin.right)
@@ -321,7 +321,7 @@ d3.csv("ecommarktanalyse.csv", function(error, data) {
     
     // set the colour scale
     var color = d3.scaleOrdinal(d3.schemeCategory10);
-    legendSpace = width/dataNest.length; // spacing for the legend */
+    legendSpace = width/dataNest.length; // spacing for the legend /
     
     // Loop through each symbol / key
     dataNest.forEach(function(d,i) { 
@@ -347,8 +347,9 @@ d3.csv("ecommarktanalyse.csv", function(error, data) {
       .attr("class", "axis")
       .attr("transform", "translate(0," + height + ")")
       .call(d3.axisBottom(xl)
-	   .ticks(d3.timeYear));
-    // Add the Y Axis
+	   //.ticks(d3.timeYear));
+    
+	    // Add the Y Axis
     chartOmzetgroei.append("g")
       .attr("class", "axis")
       .call(d3.axisLeft(yl));
@@ -362,6 +363,6 @@ d3.csv("ecommarktanalyse.csv", function(error, data) {
       .style("text-anchor", "start")
       .style("font-size", 10)
       .text("Omzetontwikkeling t.o.v. periode voorgaand jaar (%)");  
-});
+});    */
 </script>
 </body>
