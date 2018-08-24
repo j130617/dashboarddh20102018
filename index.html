@@ -111,17 +111,17 @@ var chartomzetdhcbs = d3.select("body").append("svg")
     .attr("transform", 
 	  "translate(" + margin.left + "," + margin.top + ")");
 	// Get the data
-d3.csv("omzet.csv", function(error, data) {
+d3.csv("data.csv", function(error, data) {
   if (error) throw error;
   
   	// format the data
   data.forEach(function(d) {
-    d.omzetdhcbs = +d.omzetdhcbs;
+    d.dhomzetcbs = +d.dhomzetcbs;
   });
 	
   	// Scale the range of the data in the domains
   xb.domain(data.map(function(d) { return d.jaar1; }));
-  yb.domain([0, d3.max(data, function(d) { return d.omzetdhcbs; })]);	
+  yb.domain([0, d3.max(data, function(d) { return d.dhomzetcbs; })]);	
   
 	// append the rectangles for the bar chart
   chartomzetdhcbs.selectAll(".bar")
@@ -130,14 +130,14 @@ d3.csv("omzet.csv", function(error, data) {
       .attr("class", "bar")
       .attr("x", function(d) { return xb(d.jaar1); })
       .attr("width", xb.bandwidth())
-      .attr("y", function(d) { return yb(d.omzetdhcbs); })
-      .attr("height", function(d) { return height - yb(d.omzetdhcbs); })
+      .attr("y", function(d) { return yb(d.dhomzetcbs); })
+      .attr("height", function(d) { return height - yb(d.dhomzetcbs); })
       .on("mousemove", function(d){
             tooltip
               .style("left", d3.event.pageX + 10 + "px")
               .style("top", d3.event.pageY - 25 + "px")
               .style("display", "inline-block")
-              .html((d.jaar1) + "<br>" + (d.omzetdhcbs) + " miljard euro");
+              .html((d.jaar1) + "<br>" + (d.dhomzetcbs) + " miljard euro");
         })
     		.on("mouseout", function(d){ tooltip.style("display", "none");});
   
@@ -173,17 +173,17 @@ var chartomzetecomcbs = d3.select("body").append("svg")
     .attr("transform", 
 	  "translate(" + margin.left + "," + margin.top + ")");
 	// Get the data
-d3.csv("omzet.csv", function(error, data) {
+d3.csv("data.csv", function(error, data) {
   if (error) throw error;
   
   	// format the data
   data.forEach(function(d) {
-    d.omzetwebcbs = +d.omzetwebcbs;
+    d.omzetwebwinkelscbs = +d.omzetwebwinkelscbs;
   });
 	
   	// Scale the range of the data in the domains
   xb.domain(data.map(function(d) { return d.jaar1; }));
-  yb.domain([0, d3.max(data, function(d) { return d.omzetwebcbs; })]);	
+  yb.domain([0, d3.max(data, function(d) { return d.omzetwebwinkelscbs; })]);	
   
 	// append the rectangles for the bar chart
   chartomzetecomcbs.selectAll(".bar")
@@ -192,14 +192,14 @@ d3.csv("omzet.csv", function(error, data) {
       .attr("class", "bar")
       .attr("x", function(d) { return xb(d.jaar1); })
       .attr("width", xb.bandwidth())
-      .attr("y", function(d) { return yb(d.omzetwebcbs); })
-      .attr("height", function(d) { return height - yb(d.omzetwebcbs); })
+      .attr("y", function(d) { return yb(d.omzetwebwinkelscbs); })
+      .attr("height", function(d) { return height - yb(d.omzetwebwinkelscbs); })
       .on("mousemove", function(d){
             tooltip
               .style("left", d3.event.pageX + 10 + "px")
               .style("top", d3.event.pageY - 25 + "px")
               .style("display", "inline-block")
-              .html((d.jaar1) + "<br>" + (d.omzetwebcbs) + " miljard euro");
+              .html((d.jaar1) + "<br>" + (d.omzetwebwinkelscbs) + " miljard euro");
         })
     		.on("mouseout", function(d){ tooltip.style("display", "none");});
   
@@ -235,17 +235,17 @@ var chartomzetecomgfk = d3.select("body").append("svg")
     .attr("transform", 
 	  "translate(" + margin.left + "," + margin.top + ")");
 	// Get the data
-d3.csv("omzet.csv", function(error, data) {
+d3.csv("data.csv", function(error, data) {
   if (error) throw error;
   
   	// format the data
   data.forEach(function(d) {
-    d.omzetgfk = +d.omzetgfk;
+    d.totaalomzettmm = +d.totaalomzettmm;
   });
 	
   	// Scale the range of the data in the domains
   xb.domain(data.map(function(d) { return d.jaar2; }));
-  yb.domain([0, d3.max(data, function(d) { return d.omzetgfk; })]);	
+  yb.domain([0, d3.max(data, function(d) { return d.totaalomzettmm; })]);	
   
 	// append the rectangles for the bar chart
   chartomzetecomgfk.selectAll(".bar")
@@ -254,14 +254,14 @@ d3.csv("omzet.csv", function(error, data) {
       .attr("class", "bar")
       .attr("x", function(d) { return xb(d.jaar2); })
       .attr("width", xb.bandwidth())
-      .attr("y", function(d) { return yb(d.omzetgfk); })
-      .attr("height", function(d) { return height - yb(d.omzetgfk); })
+      .attr("y", function(d) { return yb(d.totaalomzettmm); })
+      .attr("height", function(d) { return height - yb(d.totaalomzettmm); })
       .on("mousemove", function(d){
             tooltip
               .style("left", d3.event.pageX + 10 + "px")
               .style("top", d3.event.pageY - 25 + "px")
               .style("display", "inline-block")
-              .html((d.jaar2) + "<br>" + (d.omzetgfk) + " miljard euro");
+              .html((d.jaar2) + "<br>" + (d.totaalomzettmm) + " miljard euro");
         })
     		.on("mouseout", function(d){ tooltip.style("display", "none");});
   
